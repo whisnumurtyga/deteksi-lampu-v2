@@ -20,4 +20,4 @@ class YOLOSegmentation:
         bboxes = np.array(result.boxes.xyxy.cpu(), dtype='int')
         class_ids = np.array(result.boxes.cls.cpu(), dtype='int')
         scores = np.array(result.boxes.conf.cpu(), dtype='float').round(2)
-        return bboxes, class_ids, segmentation_contour_idx, scores
+        return bboxes, class_ids, self.model.names, segmentation_contour_idx, scores
